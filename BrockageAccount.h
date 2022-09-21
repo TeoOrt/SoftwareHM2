@@ -7,11 +7,14 @@ private:
   float AccountBalance;
   
 public:
-    
+    Account (){
+        AccountName = "Default";
+        AccountBalance = 0.0;
+    }
  void SetAccountName (std::string Name){
     AccountName =Name;
  }
-std::string GetAccountName() const{
+std::string GetAccountName() {
     return AccountName;
 }
 void SetBalance (float Balance){

@@ -14,8 +14,19 @@ class Stock{
         float StockValue;
         double MarketCap;
         float DivYield;
-          
+          //Constructor
+
+//Setting up getters and setters
     public:
+
+     Stock (){
+    StockShortName = "";
+    PurchaseDate = "";
+    CurrentDate = "";
+    StockValue = 0.0;
+    MarketCap = 0.0;
+    DivYield = 0.0;
+}
         void SetStockStats(std::string Name, std::string ShortName , float Value,
         double MKCap, float Yield, std::string Date
         ){
@@ -57,18 +68,17 @@ class Stock{
 
 
 
-class  Portfolio: public Stock, public Account{
+class  Portfolio:
+ public Stock, public Account{
 
 private:
 
 double PortfolioBalance;
 std::map<std::string ,double > Portfoliolist; // This map will store the history of all transactions
-
+// {'keyworkd', 'key'}
 public:
 
-Portfolio(){
-    PortfolioBalance = 0;
-}
+
 void setPortfolioBalance(double Bal){
     PortfolioBalance = Bal;
 }
@@ -100,9 +110,9 @@ std::string currency_type;
 
 public:
 //constructor
-Money (double cash,std::string currency){
-    amount = cash;
-    currency_type = currency;
+Money (){
+    amount = 0;
+    currency_type = "Dollars";
     availabe = false;
 }
 
@@ -118,6 +128,10 @@ void SetCurrency(std::string type){
 std::string GetCurrency(){
     return currency_type;
 } 
+
+void getMoneyInfo(){
+    std::cout << "Amount of cash:"<< GetCash() << "\nCurrency Type:" << GetCurrency() << "\n";
+}
 
 void DepositMoney(double deposit){
     amount = deposit + amount;
@@ -160,6 +174,7 @@ class Status{
     private:
     bool active; // check if account is on
     bool LowMoneyWarning;
+
     public:
     Status (){
         active = false;
@@ -168,6 +183,9 @@ class Status{
     void setStatus( bool stat){
         active = stat;
     }
+    bool GetStatus(){
+        return active;
+    }
     void GetWarning(double money){//  going to get from money class to set the warning
         if ( money< 1000){
             LowMoneyWarning = true;
@@ -175,6 +193,7 @@ class Status{
         }
         else{
             LowMoneyWarning = false;
+            std::cout << "You're balance is good\n";
         }
     }
 
@@ -192,14 +211,69 @@ class Dates{
 
 };
 
-class Analysis{
 
+class Analysis{
+private:
+    bool stockWorth;
+    
+    
+public:
+    // constructor
+    explicit Analysis(bool worth)
+    :  stockWorth(worth){
+    }
+    
+
+    bool getAnalysis(){
+        return stockWorth;
+    }
+    
+    void setWorth(bool worth){
+        stockWorth = worth;
+    }
 };
 
 class Buy{
-
+private:
+    float amount;
+    
+public:
+    // Constructor
+    explicit Buy(float stockBuy)
+    : amount(stockBuy){
+    }
+    
+    // Mutator
+    void setPrice(float price){
+        amount = price;
+    }
+    
+    // Accessor
+    float stockPrice(){
+        return amount;
+    }
+    // TODO: add a buy function that add stock to portfolio
 };
 
 class Sell{
-
+private:
+    float amount;
+    
+public:
+    // Constructor
+    explicit Sell(float stockSell)
+    : amount(stockSell){
+    }
+    
+    // Mutator
+    void setPrice(float price){
+        amount = price;
+    }
+    
+    // Accessor
+    float stockPrice(){
+        return amount;
+    }
+    
+    //TODO: create a sell function that will add stock to the portfolio
 };
