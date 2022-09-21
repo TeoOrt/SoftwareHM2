@@ -83,90 +83,41 @@ Microsoft.setPrice(1500.0);
 cout << "Microsoft Stock Price is:" << Microsoft.stockPrice() << "\n";
 
 
+Profits KevinProfitfs(0.0);
+cin >> Mateo;
+cout << "Kevin's default profits are:" << KevinProfitfs.getProf() << "\n";
+
+KevinProfitfs.setProf(3000.0);
+cout << "Kevin's profits are:" << KevinProfitfs.getProf() << "\n";
 
 
+History KevinHistory(0.0);
+
+cin >> Mateo;
+cout << "Kevin's default number of transactions  are:" << KevinHistory.gettrans() << "\n";
+
+KevinHistory.settrans(3005.0);
+cout << "Kevin's number of transactions are:" << KevinHistory.gettrans() << "\n";
+
+
+Dates KevinDates;
+
+cin >> Mateo;
+
+cout << "Kevin's default date is:" << KevinDates.GetDate() << "\n";
+
+KevinDates.SetDate("Sep 21, 2022");
+
+cout << "Kevin's current date is:" << KevinDates.GetDate() << "\n";
+
+
+//Time CurrentTime("Mountain");
+
+//cin >>Mateo;
+
+
+//cout << "Current time is: " << CurrentTime.GetTime() << "\n";
 
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-int main(){
-    float Balance  = 50.0;
-    float Add;
-    string Name = "Mateo Ortega";
-    string AccountOperations;
-    string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n Balance = Total Value of Stocks \n StockInfo =  Check The Stock Information You are purchasing \n";
-
-    cout << "\n" << CommandList << "\n";
-    cin >> AccountOperations;
-
-    Stock Tesla;  // Testing for Tesla Stock 
-        string StockName = "Tesla";
-        string StockShortName ="TSLA";
-        string PurchaseDate = "09/11/2022";
-        string CurrentDate = "09/11/2022";
-        float StockValue = 299.68;
-        double MarketCap;
-        MarketCap = 939.04 * (10e6);
-        float DivYield =0;
-
-
-
-
-    int i = 0;
-    Portfolio MateosPort;
-    int numstocks;
-    MateosPort.SetAccountName(Name);
-    MateosPort.SetBalance(Balance);
-    MateosPort.SetStockStats(StockName,StockShortName,StockValue,MarketCap,DivYield
-    ,CurrentDate);
-    MateosPort.setPortfolioBalance( i =0);
-    while(AccountOperations != "Stop"){
-        
-        if(AccountOperations == "Deposit"){
-            cin >> Add;
-            MateosPort.DepositToAccount(Add);
-        }
-        else if(AccountOperations == "Statement"){
-             MateosPort.PrintStatement();   
-        }
-        else if(AccountOperations == "Withdrawl"){
-            cin >> Add;
-            MateosPort.WithdrawlToAccount(Add);
-        }
-        else if(AccountOperations == "Purchase"){
-            cin >> numstocks;
-            MateosPort.StockPurchase(numstocks);
-
-        }
-        else if(AccountOperations == "Balance"){
-            MateosPort.Balance();
-        }
-        else if(AccountOperations == "StockInfo"){
-            MateosPort.StockInfo();
-        }
-        else{
-            cout << "Try again \n" << CommandList << "\n";
-        }
-
-
-
-      cin >> AccountOperations;
-    }
-
-}
-
-*/

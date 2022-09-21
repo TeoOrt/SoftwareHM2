@@ -166,6 +166,9 @@ class Time{
     std::string GetTimeZone(){
         return TimeZone;
     }
+    time_t GetTime(){
+        return my_time;
+    }
 
 
 };
@@ -201,14 +204,67 @@ class Status{
 
 class Profits{
 
+    private:
+        float gainProf;
+        float prof;
+    
+public:
+    // Constructor
+    explicit Profits (float gain)
+    : prof (gain){
+    }
+    
+    // Mutator
+    void setProf(float gainProf){
+        prof = gainProf;
+    }
+    
+    // Accessor
+    float getProf(){
+        return prof;
+    }
 };
 
 class History{
 
+private:
+    float transaction;
+    float trans;
+    
+public:
+    // Constructor
+    explicit History(float numTrans)
+    : trans(numTrans){
+    }
+    
+    // Mutator
+    void settrans(float transaction){
+        trans = transaction;
+    }
+    
+    // Accessor
+    float gettrans(){
+        return trans;
+    }
 };
 
 class Dates{
 
+private:
+ std::string CurrentDate;
+
+public:
+Dates(){
+    CurrentDate = "Jan 01, 2022";
+}    
+
+void SetDate(std::string Dates){
+    CurrentDate = Dates;
+}
+
+std::string GetDate(){
+    return CurrentDate;
+}
 };
 
 
