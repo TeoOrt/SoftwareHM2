@@ -12,16 +12,17 @@ using namespace std;
 int main(){
     float Balance  = 50.0;
     float Add;
-    string Name = "Mateo Ortega";
+    string Name;
     string AccountOperations;
     string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n Balance = Total Value of Stocks \n StockInfo =  Check The Stock Information You are purchasing \n";
 
-    log LogErrors;
-    LogErrors.writelog("Mateo Hi");
-    LogErrors.closelog();
-
+    cout <<"Input Account UserName:\n";
+    cin >> Name;
+    
     cout << "\n" << CommandList << "\n";
     cin >> AccountOperations;
+    log LogErrors;
+ 
 
     Stock Tesla;  // Testing for Tesla Stock 
         string StockName = "Tesla";
@@ -48,18 +49,32 @@ int main(){
         
         if(AccountOperations == "Deposit"){
             cin >> Add;
-            MateosPort.DepositToAccount(Add);
+            try{ MateosPort.DepositToAccount(Add);
+            }
+            catch(invalid_argument &DepositE){
+                LogErrors.writelog(Name); // to make sure which account has errors
+                LogErrors.writelog(DepositE.what());
+            }
         }
         else if(AccountOperations == "Statement"){
              MateosPort.PrintStatement();   
         }
         else if(AccountOperations == "Withdrawl"){
             cin >> Add;
-            MateosPort.WithdrawlToAccount(Add);
+            try{
+            MateosPort.WithdrawlToAccount(Add);}
+            catch(invalid_argument &WithdrawlE){
+                LogErrors.writelog(Name);
+                LogErrors.writelog(WithdrawlE.what());
+            }
         }
         else if(AccountOperations == "Purchase"){
             cin >> numstocks;
-            MateosPort.StockPurchase(numstocks);
+            try{
+            MateosPort.StockPurchase(numstocks);}
+            catch(invalid_argument &PurchaseE){
+                LogErrors.writelog(PurchaseE.what());
+            }
 
         }
         else if(AccountOperations == "Balance"){
@@ -73,10 +88,15 @@ int main(){
         }
 
 
-
       cin >> AccountOperations;
     }
+    LogErrors.closelog();
 }
+
+
+
+
+
 
 
 int juan(){

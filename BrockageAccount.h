@@ -25,15 +25,15 @@ float GetBalance (){
 }
 void DepositToAccount(float add){
     if (add < 0){
-        std::cout << "Invalid Deposit \n";
-    }
+        throw std::invalid_argument("Bank Account:Negative or Invalid Deposit try again");
+   }
     else{
     AccountBalance = AccountBalance + add;
     }
 }
 void WithdrawlToAccount(float withdrawl){
     if (AccountBalance< withdrawl){
-         std::cout << "Invalid Withdrawl \n";
+        throw std::invalid_argument("Bank Accout:Invalid Withdrawl \n");
     }
     else{
     AccountBalance = AccountBalance - withdrawl;

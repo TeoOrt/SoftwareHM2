@@ -4,7 +4,7 @@
 
 class log{
 private:
-std::string logfilename = "LogPortfolioStats.log";
+std::string logfilename = "LogPortfolioStats.txt";
 std::ofstream myfile;
 bool isOpen;
 public:

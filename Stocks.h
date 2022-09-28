@@ -33,13 +33,13 @@ class Stock{
             StockName = Name;
             StockShortName = ShortName;
             if(Value < 0.0){
-                throw std::invalid_argument("Negative stock Value\n not possible input again");
+                throw std::invalid_argument("Negative stock Value\n not possible input again\n");
             }
             else if(MKCap <0.0){
-                throw std::invalid_argument("Invalid MarketCap try again");
+                throw std::invalid_argument("Invalid MarketCap try again\n");
             }
             else if(Yield<0.0){
-               throw std::invalid_argument("Invalid Dividend Yield try again");
+               throw std::invalid_argument("Invalid Dividend Yield try again\n");
             }
             else{
            StockValue = Value;
@@ -96,7 +96,7 @@ void setPortfolioBalance(double Bal){
 void StockPurchase(int NumOfStocksPurchased){
     double Balance = NumOfStocksPurchased * GetValue();
     if (Balance > GetBalance()){
-        std::cout << "Insufficent Balance";
+        throw std::invalid_argument("Insufficent Balance \n");
     }
     else{
         WithdrawlToAccount(Balance);
