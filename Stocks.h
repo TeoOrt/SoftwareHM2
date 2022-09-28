@@ -32,10 +32,21 @@ class Stock{
         ){
             StockName = Name;
             StockShortName = ShortName;
+            if(Value < 0.0){
+                throw std::invalid_argument("Negative stock Value\n not possible input again");
+            }
+            else if(MKCap <0.0){
+                throw std::invalid_argument("Invalid MarketCap try again");
+            }
+            else if(Yield<0.0){
+               throw std::invalid_argument("Invalid Dividend Yield try again");
+            }
+            else{
            StockValue = Value;
             MarketCap = MKCap;
             DivYield = Yield;
             PurchaseDate = Date;
+            }
         }
         std::string GetName() const{
             return StockName;
@@ -333,3 +344,4 @@ public:
     
     //TODO: create a sell function that will add stock to the portfolio
 };
+
