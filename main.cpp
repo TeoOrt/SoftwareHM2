@@ -17,7 +17,7 @@ int main(){
     string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n Balance = Total Value of Stocks \n StockInfo =  Check The Stock Information You are purchasing \n";
 
     log LogErrors;
-    LogErrors.writelog("Mateo");
+    LogErrors.writelog("Mateo Hi");
     LogErrors.closelog();
 
     cout << "\n" << CommandList << "\n";
