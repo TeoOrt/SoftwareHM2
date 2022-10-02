@@ -87,7 +87,7 @@ int main(){
             cout << "Try again \n" << CommandList << "\n";
         }
 
-
+        
       cin >> AccountOperations;
     }
     LogErrors.closelog();

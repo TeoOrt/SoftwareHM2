@@ -4,7 +4,7 @@
 
 class log{
 private:
-std::string logfilename = "LogPortfolioStats.txt";
+std::string logfilename = "LogPortfolioStats.log";
 std::ofstream myfile;
 bool isOpen;
 public:
@@ -25,7 +25,8 @@ void closelog(){
 
 void writelog(std::string Write){
     if(isOpen){
-    myfile << Write;
+    std::cerr << Write << "\n";
+    myfile << Write << "\n";
     }
     else{
         openlog();
